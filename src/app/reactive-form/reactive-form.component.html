@@ -1,0 +1,143 @@
+<app-header></app-header>
+<div class="container border mt-4">
+  <div class="form-group text-center mt-5">
+    <div class="row mb-5">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()"></form>
+        <div class="form">
+         
+          <label for="Username" class="control-lable"> Username</label>
+                  
+          <div [ngClass]="{
+            'has-error':
+            (form.get('Username').errors &&
+            form.get('Username').touched) ||
+             form.get('Username').dirty 
+             }"
+          >
+
+          <input
+            type="text"
+            placeholder="Username"
+            id="Username"
+            FormControlName="Username"
+            class="form-control"
+          />
+          <span
+          class="text-danger"
+          *ngIf="form.get('Username').errors &&
+          (form.get('Username').touched ||
+           form.get('Username').dirty )"
+        >
+          <span
+          class="text-danger"
+          *ngIf="form.get('Username').errors"
+        >
+        Username required
+        </span>
+          <span
+          
+            class="text-danger"
+            *ngIf="
+              form.get('Username').errors.maxlength ||
+             form.get('Username').errors.minlength "
+          >
+          </span>
+          </span>
+          </div>
+        </div>
+        
+        <label for="email" form="email">Email</label>
+        <input
+          type="email"
+          placeholder="email"
+          id="email"
+          FormControlName="Email"
+          class="form-control"
+        />
+        <span ngClass="isvalid"
+        class="text-danger"
+        *ngIf="form.get('Email').errors &&
+        (form.get('Email').touched ||
+         form.get('Email').dirty )"
+      >
+      
+        <span
+          class="text-danger"
+          *ngIf="form.get('Email').errors?.required"
+        >
+        Email required
+        </span>
+        <span
+          class="text-danger"
+          *ngIf="
+            form.get('Email').errors?.maxlength ||
+           form.get('Email').errors?.minlength "
+        >
+        </span>
+        </span>
+
+        <label for="password" form="password">Password</label>
+        <input
+          type="password"
+          placeholder="******"
+          id="password"
+          FormControlName="Password"
+          class="form-control"
+        />
+        <span
+        class="text-danger"
+        *ngIf="form.get('Password').errors &&
+        (form.get('Password').touched ||
+         form.get('Password').dirty )"
+      >
+        <span
+          class="text-danger"
+          *ngIf="form.get('Password').errors?.required"
+        >
+        Password required
+        </span>
+        <span
+          class="text-danger"
+          *ngIf="
+            form.get('Password').errors?.maxlength ||
+           form.get('Password').errors?.minlength "
+        >
+        </span>
+        
+        </span>
+
+        <label for="Mobile" form="Mobile">Mobile</label>
+        <input
+          type="number"
+          placeholder="Mobile"
+          id="Mobile"
+          FormControlName="Mobile"
+          class="form-control"
+        />
+        <span
+        class="text-danger"
+        *ngIf="form.get('Mobile').errors &&
+        (form.get('Mobile').touched ||
+         form.get('Mobile').dirty )"
+      >
+        <span
+          class="text-danger"
+          *ngIf="form.get('Mobile').errors?.required"
+        >
+        Mobile required
+        </span>
+        <span
+          class="text-danger"
+          *ngIf="
+            form.get('Mobile').errors?.maxlength ||
+           form.get('Mobile').errors?.minlength "
+        >
+        </span>
+        </span>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-warning mb-5">Submit</button>
+  </div>
+</div>

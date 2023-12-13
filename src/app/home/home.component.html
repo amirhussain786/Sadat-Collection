@@ -1,0 +1,37 @@
+<app-header> [card]="cart" (onCartClicked)="goToCart()"</app-header>
+<div class="container">
+  <h1 class="text-center">Sadaat Collection</h1>
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col" *ngFor="let item of cards">
+          <div class="card shadow-sm">
+            <img src="{{ item.img }}" alt="" />
+            <div class="card-body">
+              <h2>{{ item.price | currency : "INR" }}</h2>
+              <h4>{{item.size}}</h4>
+              <p class="card-text">{{ item.des }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" routerLink="/buy" class="btn btn-sm btn-outline-info">
+                    Buy
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-warning"
+                    (click)="addToCart(item)"
+                  >
+                    Add to cart
+                  </button>
+                </div>
+                <a href="/"></a><small class="text-body-secondary">Order now</small>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
